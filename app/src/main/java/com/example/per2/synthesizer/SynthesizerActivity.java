@@ -43,6 +43,7 @@ public class SynthesizerActivity extends AppCompatActivity implements View.OnCli
     private Button buttonHighG;
     private Button buttonHighGs;
     private Button buttonPlaySong;
+    private Button buttonPlaySong2;
     private Button buttonPlayScale;
 
 
@@ -193,7 +194,9 @@ public class SynthesizerActivity extends AppCompatActivity implements View.OnCli
         buttonHighGs.setOnClickListener(noteListener);
         //challenge buttons still use the Activity's implementatic
         buttonPlayScale.setOnClickListener(this);
+        buttonPlaySong2.setOnClickListener(this);
         buttonPlaySong.setOnClickListener(this);
+
 
 
 
@@ -228,6 +231,7 @@ public class SynthesizerActivity extends AppCompatActivity implements View.OnCli
         buttonHighGs = findViewById(R.id.button_synth_highGs);
         buttonPlayScale = findViewById(R.id.button_synth_playScale);
         buttonPlaySong = findViewById(R.id.button_synth_playSong);
+        buttonPlaySong2 = findViewById(R.id.button_synth_playSong3);
 
 
     }
@@ -284,6 +288,9 @@ public class SynthesizerActivity extends AppCompatActivity implements View.OnCli
               break;
           case R.id.button_synth_playSong:
               playTwinkleStars();
+              break;
+          case R.id.button_synth_playSong3:
+              playMidsummerMadness();
               break;
     }
 }
@@ -378,13 +385,78 @@ public class SynthesizerActivity extends AppCompatActivity implements View.OnCli
         ArrayList<Integer>musicalNotes = new ArrayList<>(Arrays.asList(noteE, noteCs, noteE, noteCs, noteFs, noteE, noteB, noteA, noteE, noteCs,
                 noteE, noteCs, noteFs, noteE, noteB, noteA, noteE, noteCs, noteCs, noteHighA, noteA, noteFs, noteE, noteB, noteA, noteCs, noteCs, noteB,
                 noteA, noteE, noteE, noteD, noteFs, noteHighA, noteHighCs, noteHighB, noteD, noteFs, noteHighA, noteHighCs, noteHighB, noteCs,
+                noteFs, noteHighA, noteHighCs, noteHighB, noteHighA, noteHighCs, noteHighB, noteHighA, noteE, noteE, noteD, noteFs, noteHighA, noteHighCs, noteHighB, noteD, noteFs, noteHighA, noteHighCs, noteHighB, noteCs,
                 noteFs, noteHighA, noteHighCs, noteHighB, noteHighA, noteHighCs, noteHighB, noteHighA));
         Song song3 = new Song();
         for(int i = 1; i <= musicalNotes.size(); i++)
         {
-            song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE));
+            if(i == 5)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE* 2));
+            }
+            else if(i == 6)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE/2));
+            }
+            else if(i == 13)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE * 2));
+            }
+            else if(i == 14)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE/2));
+            }
+            else if(i == 18 )
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE/4));
+            }
+            else if(i == 19)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE * 2));
+            }
+            else if(i == 22)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE *2));
+            }
+            else if(i == 23)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE/2));
+            }
+            else if(i == 25)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE*2));
+            }
+            else if(i == 27)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE*2));
+            }
+            else if(i == 28 )
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE/2));
+            }
+            else if(i == 29)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE*2));
+            }
+            else if(i == 33)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE/2));
+            }
+            else if(i == 37)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE/2));
+            }
+            else if(i == 41)
+            {
+                song3.add(new Note(musicalNotes.get(i-1), WHOLE_NOTE/2));
+            }
+            else
+                {
+                song3.add(new Note(musicalNotes.get(i - 1), WHOLE_NOTE));
+            }
         }
         playSong(song3);
+
     }
 
     private void delay(int duration) {
